@@ -6,7 +6,7 @@ pipeline {
         name 'maven'
         image 'java:8-jdk-alpine'
         ttyEnabled true
-        command 'java -version'
+        command '/bin/cat'
       }
     }
   }
