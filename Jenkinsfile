@@ -1,9 +1,9 @@
 pipeline {
   agent {
     kubernetes {
-      label 'buildPod'
+      label 'build-jdk8'
       containerTemplate {
-        name 'maven'
+        name 'jdk8'
         image 'java:8-jdk-alpine'
         ttyEnabled true
         command '/bin/cat'
