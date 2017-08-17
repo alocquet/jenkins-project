@@ -1,6 +1,4 @@
 pipeline {
-  stages {
-    stage('Build') {
   agent {
     kubernetes {
       label 'buildPod'
@@ -8,12 +6,12 @@ pipeline {
         name 'maven'
         image 'java:8-jdk-alpine'
         ttyEnabled true
-        command 'cat'
+        command 'java -version'
       }
-      
     }
-    
   }
+  stages {
+    stage('Build') {
       steps {
         sh './gradlew clean build'
       }
