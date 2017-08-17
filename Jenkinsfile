@@ -1,4 +1,6 @@
 pipeline {
+  stages {
+    stage('Build') {
   agent {
     kubernetes {
       label 'buildPod'
@@ -12,8 +14,6 @@ pipeline {
     }
     
   }
-  stages {
-    stage('Build') {
       steps {
         sh './gradlew clean build'
       }
