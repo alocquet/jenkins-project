@@ -4,7 +4,7 @@ pipeline {
       label 'build-jdk8'
       containerTemplate {
         name 'jdk8'
-        image 'java:8-jdk-alpine'
+        image 'java:8-jdk'
         ttyEnabled true
         command '/bin/cat'
       }
