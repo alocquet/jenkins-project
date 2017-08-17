@@ -7,4 +7,12 @@ pipeline {
       }
     }
   }
+  post {
+    success {
+      archive 'build/libs/**/*.jar'
+      junit 'build/reports/**/*.xml'
+      
+    }
+    
+  }
 }
