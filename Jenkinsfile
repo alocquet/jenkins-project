@@ -10,7 +10,7 @@ pipeline {
   post {
     success {
       archive 'build/libs/**/*.jar'
-      junit 'build/test-results/test/*.xml'
+      junit '**/build/test-results/**/*.xml'
       
     }
     
