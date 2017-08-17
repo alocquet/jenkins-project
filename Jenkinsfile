@@ -13,16 +13,23 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh './gradlew clean build'
+        sh './gradlew clean assemble'
+      }
+      post {
+        success {
+          archive 'build/libs/**/*.jar'
+        }
       }
     }
-  }
-  post {
-    success {
-      archive 'build/libs/**/*.jar'
-      junit 'build/test-results/**/*.xml'
-      
+    stage('Test') {
+      steps {
+        sh './gradlew check'
+      }
+      post {
+        always {
+          junit 'build/test-results/**/*.xml'
+        }
+      } 
     }
-    
   }
 }
