@@ -1,5 +1,17 @@
 pipeline {
-  agent any
+  agent {
+    kubernetes {
+      label 'buildPod'
+      containerTemplate {
+        name 'maven'
+        image 'java:8-jdk-alpine'
+        ttyEnabled true
+        command 'cat'
+      }
+      
+    }
+    
+  }
   stages {
     stage('Build') {
       steps {
