@@ -1,7 +1,6 @@
 pipeline {
   agent {
     kubernetes {
-      cloud 'minikube'
       label 'buildPod'
       containerTemplate {
         name 'maven'
