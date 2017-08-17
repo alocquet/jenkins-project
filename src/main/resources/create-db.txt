@@ -1,0 +1,7 @@
+db.createUser(
+    {
+      user: "alocquet",
+      pwd: "alocquet",
+      roles: [ { role: "dbOwner", db: "poc" } ]
+    }
+  );
